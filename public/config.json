@@ -1,0 +1,214 @@
+{
+  "marriage-legal": {
+    "legend": {
+      "yes": "Marriage legal",
+      "states": "(in most states)"
+    },
+    "theme": {
+      "yes": "#F87D31",
+      "states": "#FFDC90"
+    },
+    "countries": {
+      "Mexico": ["yes", "states"],
+      "United Kingdom": ["yes", "states"],
+      "Argentina": ["yes"],
+      "Belgium": ["yes"],
+      "Brazil": ["yes"],
+      "Canada": ["yes"],
+      "Colombia": ["yes"],
+      "Denmark": ["yes"],
+      "Finland": ["yes"],
+      "France": ["yes"],
+      "Germany": ["yes"],
+      "Greenland (part of Denmark)": ["yes"],
+      "Iceland": ["yes"],
+      "Ireland": ["yes"],
+      "Luxembourg": ["yes"],
+      "Malta": ["yes"],
+      "Netherlands": ["yes"],
+      "New Zealand": ["yes"],
+      "Norway": ["yes"],
+      "Portugal": ["yes"],
+      "South Africa": ["yes"],
+      "Spain": ["yes"],
+      "Sweden": ["yes"],
+      "United States": ["yes"],
+      "Uruguay": ["yes"]
+    }
+  },
+  "marriage-legal-breakdown": {
+    "legend": {
+      "court": "Court",
+      "parliament": "Parliament",
+      "cnp": "Court & Parliament",
+      "referendum": "Referendum"
+    },
+    "theme": {
+      "court": "#43A2CA",
+      "parliament": "#A8DDB5",
+      "cnp": "#7BCCC4",
+      "referendum": "#0868AC"
+    },
+    "countries": {
+      "Mexico": ["court", "cnp"],
+      "United Kingdom": ["parliament"],
+      "Argentina": ["parliament"],
+      "Belgium": ["parliament"],
+      "Brazil": ["court"],
+      "Canada": ["parliament"],
+      "Colombia": ["court"],
+      "Denmark": ["parliament"],
+      "Finland": ["parliament"],
+      "France": ["parliament"],
+      "Germany": ["parliament"],
+      "Greenland (part of Denmark)": ["parliament"],
+      "Iceland": ["parliament"],
+      "Ireland": ["referendum"],
+      "Luxembourg": ["parliament"],
+      "Malta": ["parliament"],
+      "Netherlands": ["parliament"],
+      "New Zealand": ["parliament"],
+      "Norway": ["parliament"],
+      "Portugal": ["parliament"],
+      "South Africa": ["cnp"],
+      "Spain": ["parliament"],
+      "Sweden": ["parliament"],
+      "United States": ["court"],
+      "Uruguay": ["parliament"]
+    }
+  },
+  "acts-illegal": {
+    "legend": {
+      "yes": "Homosexual acts illegal"
+    },
+    "theme": {
+      "yes": "#BE426F"
+    },
+    "countries": {
+      "Qatar": ["yes"],
+      "Indonesia": ["yes"],
+      "Uzbekistan": ["yes"],
+      "Afghanistan": ["yes"],
+      "Algeria": ["yes"],
+      "Angola": ["yes"],
+      "Antigua and Barbuda": ["yes"],
+      "Bangladesh": ["yes"],
+      "Barbados": ["yes"],
+      "Belize": ["yes"],
+      "Bhutan": ["yes"],
+      "Botswana": ["yes"],
+      "Brunei": ["yes"],
+      "Burundi": ["yes"],
+      "Cameroon": ["yes"],
+      "Comoros": ["yes"],
+      "Cook Islands": ["yes"],
+      "Dominica": ["yes"],
+      "Egypt": ["yes"],
+      "Eritrea": ["yes"],
+      "Ethiopia": ["yes"],
+      "Gambia": ["yes"],
+      "Gaza": ["yes"],
+      "Ghana": ["yes"],
+      "Grenada": ["yes"],
+      "Guinea": ["yes"],
+      "Guyana": ["yes"],
+      "India": ["yes"],
+      "Iran": ["yes"],
+      "Iraq": ["yes"],
+      "Jamaica": ["yes"],
+      "Kiribati": ["yes"],
+      "Kuwait": ["yes"],
+      "Lebanon": ["yes"],
+      "Liberia": ["yes"],
+      "Libya": ["yes"],
+      "Malawi": ["yes"],
+      "Malaysia": ["yes"],
+      "Maldives": ["yes"],
+      "Mauritania": ["yes"],
+      "Mauritius": ["yes"],
+      "Morocco": ["yes"],
+      "Myanmar": ["yes"],
+      "Nigeria": ["yes"],
+      "Oman": ["yes"],
+      "Pakistan": ["yes"],
+      "Papua New Guinea": ["yes"],
+      "Saint Kitts and Nevis": ["yes"],
+      "Saint Lucia": ["yes"],
+      "Saint Vincent and the Grenadines": ["yes"],
+      "Samoa": ["yes"],
+      "Saudi Arabia": ["yes"],
+      "Senegal": ["yes"],
+      "Sierra Leone": ["yes"],
+      "Singapore": ["yes"],
+      "Solomon Islands": ["yes"],
+      "Somalia": ["yes"],
+      "South Sudan": ["yes"],
+      "Sri Lanka": ["yes"],
+      "Sudan": ["yes"],
+      "Swaziland": ["yes"],
+      "Syria": ["yes"],
+      "Tanzania": ["yes"],
+      "Togo": ["yes"],
+      "Tonga": ["yes"],
+      "Trinidad and Tobago": ["yes"],
+      "Tunisia": ["yes"],
+      "Turkmenistan": ["yes"],
+      "Tuvalu": ["yes"],
+      "Uganda": ["yes"],
+      "United Arab Emirates": ["yes"],
+      "Yemen": ["yes"],
+      "Zambia": ["yes"],
+      "Zimbabwe": ["yes"]
+    }
+  },
+  "acts-punishable-by-death": {
+    "legend": {
+      "yes": "Risk death penalty"
+    },
+    "theme": {
+      "yes": "#BE426F"
+    },
+    "countries": {
+      "Afghanistan": ["yes"],
+      "Iran": ["yes"],
+      "Mauritania": ["yes"],
+      "Nigeria": ["yes"],
+      "Pakistan": ["yes"],
+      "Qatar": ["yes"],
+      "Saudi Arabia": ["yes"],
+      "Somalia": ["yes"],
+      "Sudan": ["yes"],
+      "United Arab Emirates": ["yes"],
+      "Yemen": ["yes"]
+    }
+  },
+  "more-draconian": {
+    "legend": {
+      "yes": "Getting worse",
+      "notes": "(see notes)"
+    },
+    "theme": {
+      "yes": "#BE426F",
+      "notes": "\\"
+    },
+    "countries": {
+      "Brunei": ["yes"],
+      "Egypt": ["yes"],
+      "Ethiopia": ["yes", "notes"],
+      "Gambia": ["yes"],
+      "Indonesia": ["yes"],
+      "Kuwait": ["yes"],
+      "Malawi": ["yes"],
+      "Malaysia": ["yes"],
+      "Maldives": ["yes"],
+      "Nigeria": ["yes"],
+      "Somalia": ["yes"],
+      "Tanzania": ["yes"],
+      "Tunisia": ["yes"],
+      "Uganda": ["yes"],
+      "Yemen": ["yes"],
+      "Zambia": ["yes", "notes"],
+      "Zimbabwe": ["yes", "notes"]
+    }
+  }
+}
