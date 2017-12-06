@@ -1,55 +1,56 @@
 const React = require('react');
-const Scrollyteller = require('./Scrollyteller');
-const Map = require('./Map');
 
+const Map = require('./Map');
 const styles = require('./App.scss');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onMark = this.onMark.bind(this);
+
     this.state = {
-      property: 'marriage-legal'
+      countries: [],
+      colour: '#999'
     };
   }
 
-  render() {
-    const { projectName, config } = this.props;
+  componentDidMount() {
+    window.addEventListener('mark', this.onMark);
+  }
 
-    const p = config[this.state.property];
-    const colour = p.theme[Object.keys(p.theme)[0]];
+  componentWillUnmount() {
+    window.removeEventListener('mark', this.onMark);
+  }
 
-    // TODO: this should be loaded using the loader
-    const states = ['marriage-legal', 'acts-illegal', 'acts-punishable-by-death', 'more-draconian'];
-    const panels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((_, i) => {
-      const property = states[i % states.length];
-      const node = document.createElement('p');
-      node.innerHTML = 'This is a paragraph for ' + property + '.';
+  onMark(mark) {
+    const { config } = mark.detail.activated;
 
-      if (i === 2) {
-        node.innerHTML += '<br /><br />And another thing<br /><br />And another<br /><br />And yet another one';
+    if (config.legality) {
+      // Find the key in our data (they have hyphens but markers cannot)
+      const key = Object.keys(this.props.data).filter(k => {
+        return k.replace(/\-+/, '') === config.legality;
+      })[0];
+
+      if (key) {
+        // Grab the countries out of the config
+        const countries = data[key].countries;
+        const colour = conig.colour || data[key].theme[Object.keys(data[key].theme)[0]];
+
+        this.setState(state => {
+          return {
+            countries,
+            colour
+          };
+        });
       }
+    }
+  }
 
-      return {
-        marker: {
-          i,
-          property
-        },
-        nodes: [node]
-      };
-    });
-
+  render() {
     return (
       <div className={styles.base}>
-        <p>this is some content before the scrollyteller</p>
-        <p>more content</p>
-
-        <Scrollyteller panels={panels} onMarker={marker => this.setState({ property: marker.property })}>
-          <Map highlightedCountries={Object.keys(p.countries)} colour={colour} />
-        </Scrollyteller>
-
-        <p>Content after</p>
-        <p>More content after</p>
+        <Map highlightedCountries={this.state.countries} colour={this.state.colour} />
       </div>
     );
   }

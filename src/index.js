@@ -6,9 +6,15 @@ const PROJECT_NAME = 'interactive-gay-rights-map';
 const root = document.querySelector(`[data-${PROJECT_NAME}-root]`);
 
 function init() {
+  const stage = document.querySelector('.scrollyteller-stage');
+
+  if (stage === null) {
+    return setTimeout(init, 100);
+  }
+
   const App = require('./components/App');
-  d3.json(root.getAttribute('data-config-url'), (err, config) => {
-    render(<App projectName={PROJECT_NAME} config={config} />, root);
+  d3.json(root.getAttribute('data-config-url'), (err, data) => {
+    render(<App data={data} />, stage);
   });
 }
 
