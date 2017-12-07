@@ -1,9 +1,22 @@
 :global {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
+  .Block.is-heading,
+  .Block.is-richtext {
+    background-color: #efefef;
   }
+
+  // @media screen and (max-device-width: 400px) {
+  //   .is-richtext > .Block-content.u-richtext:before {
+  //     background-color: transparent;
+  //   }
+
+  //   .scrollyteller-stage {
+  //     background: #f9f9f9;
+  //   }
+
+  //   .is-scrollyteller > .Block-content {
+  //     z-index: 0;
+  //   }
+  // }
 }
 
 .base {

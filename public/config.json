@@ -2,21 +2,24 @@
   "marriage-legal": {
     "legend": {
       "yes": "Marriage legal",
-      "states": "(in most states)"
+      "states": "Legal in most states"
     },
     "theme": {
-      "yes": "#F87D31",
-      "states": "#FFDC90"
+      "yes": "#FF741F",
+      "states": "#1FCDAE"
     },
     "countries": {
+      "Australia": ["yes"],
       "Mexico": ["yes", "states"],
       "United Kingdom": ["yes", "states"],
       "Argentina": ["yes"],
       "Belgium": ["yes"],
       "Brazil": ["yes"],
+      "British Crown Dependency (Guernsey)": ["yes"],
       "Canada": ["yes"],
       "Colombia": ["yes"],
       "Denmark": ["yes"],
+      "Faroe Islands (part of Denmark)": ["yes"],
       "Finland": ["yes"],
       "France": ["yes"],
       "Germany": ["yes"],
@@ -38,26 +41,29 @@
   },
   "marriage-legal-breakdown": {
     "legend": {
-      "court": "Court",
-      "parliament": "Parliament",
-      "cnp": "Court & Parliament",
-      "referendum": "Referendum"
+      "court": "Legalised through Court",
+      "parliament": "Legalised through Parliament",
+      "cnp": "Legalised through Court & Parliament",
+      "referendum": "Legalised through Referendum"
     },
     "theme": {
-      "court": "#43A2CA",
-      "parliament": "#A8DDB5",
-      "cnp": "#7BCCC4",
-      "referendum": "#0868AC"
+      "court": "#FF741F",
+      "parliament": "#FF741F",
+      "cnp": "#FF741F",
+      "referendum": "#FF741F"
     },
     "countries": {
+      "Australia": ["parliament"],
       "Mexico": ["court", "cnp"],
       "United Kingdom": ["parliament"],
       "Argentina": ["parliament"],
       "Belgium": ["parliament"],
       "Brazil": ["court"],
+      "British Crown Dependency (Guernsey)": ["parliament"],
       "Canada": ["parliament"],
       "Colombia": ["court"],
       "Denmark": ["parliament"],
+      "Faroe Islands (part of Denmark)": ["parliament"],
       "Finland": ["parliament"],
       "France": ["parliament"],
       "Germany": ["parliament"],
@@ -79,10 +85,10 @@
   },
   "acts-illegal": {
     "legend": {
-      "yes": "Homosexual acts illegal"
+      "yes": "Homosexual acts are illegal"
     },
     "theme": {
-      "yes": "#BE426F"
+      "yes": "#000"
     },
     "countries": {
       "Qatar": ["yes"],
@@ -163,10 +169,10 @@
   },
   "acts-punishable-by-death": {
     "legend": {
-      "yes": "Risk death penalty"
+      "yes": "Risk of death penalty"
     },
     "theme": {
-      "yes": "#BE426F"
+      "yes": "#000"
     },
     "countries": {
       "Afghanistan": ["yes"],
@@ -188,7 +194,7 @@
       "notes": "(see notes)"
     },
     "theme": {
-      "yes": "#BE426F",
+      "yes": "#000",
       "notes": "\\"
     },
     "countries": {

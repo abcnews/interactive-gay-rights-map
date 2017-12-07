@@ -10,8 +10,8 @@ class App extends React.Component {
     this.onMark = this.onMark.bind(this);
 
     this.state = {
-      countries: [],
-      colour: '#999'
+      config: props.data['marriage-legal'],
+      legend: 'all'
     };
   }
 
@@ -26,31 +26,32 @@ class App extends React.Component {
   onMark(mark) {
     const { config } = mark.detail.activated;
 
-    if (config.legality) {
+    if (config.key) {
       // Find the key in our data (they have hyphens but markers cannot)
       const key = Object.keys(this.props.data).filter(k => {
-        return k.replace(/\-+/, '') === config.legality;
+        return k.replace(/\-+/g, '') === config.key;
       })[0];
 
       if (key) {
-        // Grab the countries out of the config
-        const countries = data[key].countries;
-        const colour = conig.colour || data[key].theme[Object.keys(data[key].theme)[0]];
-
         this.setState(state => {
           return {
-            countries,
-            colour
+            config: this.props.data[key]
           };
         });
       }
+    }
+
+    if (config.legend) {
+      this.setState(state => ({
+        legend: config.legend
+      }));
     }
   }
 
   render() {
     return (
       <div className={styles.base}>
-        <Map highlightedCountries={this.state.countries} colour={this.state.colour} />
+        <Map data={this.state.config} legend={this.state.legend} />
       </div>
     );
   }
