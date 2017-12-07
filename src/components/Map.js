@@ -50,10 +50,10 @@ class Map extends React.Component {
   }
 
   onResize() {
-    const ratio = 650 / 940;
+    const ratio = (window.innerWidth > window.innerHeight ? 480 : 650) / 940;
 
     this.width = window.innerWidth;
-    this.height = this.width * ratio;
+    this.height = Math.min(this.width * ratio, window.innerHeight);
 
     const scale = window.innerWidth < 400 ? 0.15 : 0.13;
     this.projection = d3
