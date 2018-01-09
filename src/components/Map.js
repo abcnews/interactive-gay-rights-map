@@ -67,8 +67,6 @@ class Map extends React.Component {
 
     this.svg.attr('width', this.width).attr('height', this.height);
 
-    document.querySelector('.scrollyteller-stage').style.setProperty('height', this.height + 'px');
-
     this.features.selectAll('path').attr('d', this.path);
 
     this.updateData(this.props);
@@ -180,8 +178,6 @@ class Map extends React.Component {
       .attr('class', styles.svg)
       .attr('width', this.width)
       .attr('height', this.height);
-
-    document.querySelector('.scrollyteller-stage').style.setProperty('height', this.height + 'px');
 
     this.features = this.svg.append('g');
 

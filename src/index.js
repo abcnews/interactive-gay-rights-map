@@ -5,16 +5,12 @@ const d3 = require('./d3');
 const PROJECT_NAME = 'interactive-gay-rights-map';
 const root = document.querySelector(`[data-${PROJECT_NAME}-root]`);
 
+const scrollyteller = require('@abcnews/scrollyteller').loadOdysseyScrollyteller('', 'u-full', 'mark');
+
 function init() {
-  const stage = document.querySelector('.scrollyteller-stage');
-
-  if (stage === null) {
-    return setTimeout(init, 100);
-  }
-
   const App = require('./components/App');
   d3.json(root.getAttribute('data-config-url'), (err, data) => {
-    render(<App data={data} />, stage);
+    render(<App data={data} scrollyteller={scrollyteller} />, scrollyteller.mountNode);
   });
 }
 

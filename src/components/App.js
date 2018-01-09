@@ -1,57 +1,40 @@
 const React = require('react');
-
+const Scrollyteller = require('@abcnews/scrollyteller');
 const Map = require('./Map');
+
 const styles = require('./App.scss');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onMark = this.onMark.bind(this);
-
     this.state = {
-      config: props.data['marriage-legal'],
+      property: 'marriagelegal',
       legend: 'all'
     };
   }
 
-  componentDidMount() {
-    window.addEventListener('mark', this.onMark);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('mark', this.onMark);
-  }
-
-  onMark(mark) {
-    const { config } = mark.detail.activated;
-
-    if (config.key) {
-      // Find the key in our data (they have hyphens but markers cannot)
-      const key = Object.keys(this.props.data).filter(k => {
-        return k.replace(/\-+/g, '') === config.key;
-      })[0];
-
-      if (key) {
-        this.setState(state => {
-          return {
-            config: this.props.data[key]
-          };
-        });
-      }
-    }
-
-    if (config.legend) {
-      this.setState(state => ({
-        legend: config.legend
-      }));
-    }
-  }
-
   render() {
+    const { data, scrollyteller } = this.props;
+
+    const key = Object.keys(data).filter(key => {
+      return key.replace(/[^a-zA-Z]+/g, '') === this.state.property;
+    })[0];
+    const p = data[key];
+    const colour = p.theme[Object.keys(p.theme)[0]];
+
     return (
       <div className={styles.base}>
-        <Map data={this.state.config} legend={this.state.legend} />
+        <Scrollyteller
+          config={{ graphicInFront: window.innerWidth < 400 }}
+          panels={scrollyteller.panels}
+          className={`Block is-richtext is-piecemeal ${styles.scrollyteller}`}
+          panelClassName="Block-content u-layout u-richtext"
+          onMarker={config =>
+            this.setState(state => ({ property: config.key, legend: config.legend || state.legend }))
+          }>
+          <Map data={p} legend={this.state.legend} />
+        </Scrollyteller>
       </div>
     );
   }
