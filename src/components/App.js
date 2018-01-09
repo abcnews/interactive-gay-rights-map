@@ -26,7 +26,6 @@ class App extends React.Component {
     return (
       <div className={styles.base}>
         <Scrollyteller
-          config={{ graphicInFront: window.innerWidth < 400 }}
           panels={scrollyteller.panels}
           className={`Block is-richtext is-piecemeal ${styles.scrollyteller}`}
           panelClassName="Block-content u-layout u-richtext"
