@@ -1,0 +1,608 @@
+:global {
+  .Block {
+    overflow: hidden;
+    position: relative;
+    margin-top: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  @media (min-width: 980px), (orientation: landscape) and (max-width: 979px) {
+    .Block {
+      min-height: 56.25vw;
+      min-height: var(--vw-ratio-16x9);
+    }
+  }
+  :root:not(.is-dark-mode) .Block.has-dark {
+    background-color: #000;
+  }
+  :root.is-dark-mode .Block.has-light {
+    background-color: #f9f9f9;
+  }
+  @keyframes blackIn {
+    0%,
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes blackOut {
+    0% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes bounce {
+    from {
+      transform: translate(-50%, -100%);
+    }
+    to {
+      transform: translate(-50%, 0);
+    }
+  }
+  @keyframes bounceFadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(0, 20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes bounceFadeOut {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 20px);
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes shuffleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.25) translate(0, 0);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.5) translate(-100%, 0) rotate(-10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translate(0, 0);
+    }
+  }
+  @keyframes shuffleOut {
+    0% {
+      opacity: 1;
+      transform: scale(1) translate(0, 0);
+    }
+    35% {
+      opacity: 0.5;
+      transform: scale(0.5) translate(100%, 0) rotate(10deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.25) translate(0, 0);
+    }
+  }
+  @keyframes slidedownIn {
+    0% {
+      transform: translate(0, -100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes slidedownOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 100%);
+    }
+  }
+  @keyframes slidelefttIn {
+    0% {
+      transform: translate(-100%, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes slidelefttOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(100%, 0);
+    }
+  }
+  @keyframes sliderightIn {
+    0% {
+      transform: translate(100%, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes sliderightOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+  @keyframes slideupIn {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes slideupOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, -100%);
+    }
+  }
+  @keyframes zoomFadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.15);
+    }
+  }
+  .Block-media {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+  }
+  .Block-media.is-fixed {
+    clip-path: inset(-0.5px 0);
+    max-height: none;
+  }
+  .Block-media.is-fixed > * {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  .Block-media.is-fixed > * _::-webkit-full-page-media,
+  .Block-media.is-fixed > * _:future,
+  :root .Block-media.is-fixed > * {
+    -webkit-transform: translateZ(0);
+  }
+  @media (min-width: 980px) {
+    .has-inset-media .Block-media > :not(.Block-mediaCaption) {
+      position: fixed;
+      transform: translate(0, -50%);
+      top: 50vh;
+      width: 528px;
+      max-width: 42.5%;
+      height: auto;
+    }
+    .has-inset-media
+      .Block-media
+      > :not(.Block-mediaCaption)
+      _::-webkit-full-page-media,
+    .has-inset-media .Block-media > :not(.Block-mediaCaption) _:future,
+    :root .has-inset-media .Block-media > :not(.Block-mediaCaption) {
+      -webkit-transform: translate(0, -50%);
+    }
+  }
+  @media (min-width: 1800px) {
+    .has-inset-media .Block-media > :not(.Block-mediaCaption) {
+      width: 704px;
+    }
+  }
+  @media (min-width: 980px) {
+    .has-inset-media.has-left .Block-media > :not(.Block-mediaCaption) {
+      right: calc(30% - 256px);
+      left: auto;
+    }
+  }
+  @media (min-width: 1800px) {
+    .has-inset-media.has-left .Block-media > :not(.Block-mediaCaption) {
+      right: calc(30% - 412px);
+    }
+  }
+  @media (min-width: 980px) {
+    .has-inset-media.has-right .Block-media > :not(.Block-mediaCaption) {
+      right: auto;
+      left: calc(30% - 256px);
+    }
+  }
+  @media (min-width: 1800px) {
+    .has-inset-media.has-right .Block-media > :not(.Block-mediaCaption) {
+      left: calc(30% - 412px);
+    }
+  }
+  @media (max-width: 979px) {
+    .has-inset-media .Block-media:not(.is-fixed) {
+      clip-path: inset(0);
+    }
+  }
+  .has-inset-media .Block-media:not(.is-fixed) > :not(.Block-mediaCaption) {
+    position: absolute;
+  }
+  @media (max-width: 979px) {
+    .has-inset-media .Block-media:not(.is-fixed) > :not(.Block-mediaCaption) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+  .Block-media.is-beyond {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+  .Block-media.is-beyond .transition-out {
+    display: none;
+  }
+  .Block-media.is-beyond .transition-in {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-delay: 0s !important;
+  }
+  .Block-media > * {
+    height: 100%;
+  }
+  .is-not-piecemeal .Block-media > *::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .is-not-piecemeal.has-dark .Block-media > *::after {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+  .is-not-piecemeal.has-light .Block-media > *::after {
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+  }
+  @media (min-width: 980px) {
+    .has-left.is-not-piecemeal .Block-media > *::after,
+    .has-right.is-not-piecemeal .Block-media > *::after {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .has-left.has-dark.is-not-piecemeal .Block-media > *::after,
+    .has-right.has-dark.is-not-piecemeal .Block-media > *::after {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0.6) 100%
+        ),
+        linear-gradient(to right, rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0) 65%);
+    }
+    .has-left.has-light.is-not-piecemeal .Block-media > *::after,
+    .has-right.has-light.is-not-piecemeal .Block-media > *::after {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 50%,
+          rgba(255, 255, 255, 0.6) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.45) 40%,
+          rgba(255, 255, 255, 0) 65%
+        );
+    }
+    .has-right.is-not-piecemeal .Block-media > *::after {
+      transform: scaleX(-1);
+    }
+  }
+  .is-not-piecemeal .Block-media img,
+  .is-not-piecemeal .Block-media video {
+    z-index: -1;
+  }
+  .Block-media .background-transition.colour {
+    transition: all 0.3s ease;
+  }
+  .Block-media .background-transition.colour.transition-in {
+    animation: blackIn 1s linear forwards 1;
+  }
+  .Block-media .background-transition.colour.transition-out {
+    animation: blackOut 1s linear forwards 1;
+  }
+  .Block-media .background-transition.crossfade.transition-in {
+    opacity: 0;
+    z-index: 1;
+    animation: fadeIn 1s ease 0s 1 normal forwards;
+  }
+  .Block-media .background-transition.crossfade.transition-out {
+    opacity: 1;
+    z-index: 0;
+  }
+  .Block-media .background-transition.bouncefade.transition-in {
+    z-index: 1;
+    animation: bounceFadeIn 1s ease 0s 1 normal forwards;
+  }
+  .Block-media .background-transition.bouncefade.transition-out {
+    z-index: 0;
+    animation: bounceFadeOut 1s ease 0s 1 normal forwards;
+  }
+  .Block-media .background-transition.zoomfade.transition-in {
+    z-index: 0;
+    opacity: 1;
+  }
+  .Block-media .background-transition.zoomfade.transition-out {
+    z-index: 1;
+    animation: zoomFadeOut 1s ease 0s 1 normal forwards;
+  }
+  .Block-media .background-transition.slideup {
+    transition: all 1s ease;
+  }
+  .Block-media .background-transition.slideup.transition-in {
+    animation: slideupIn 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slideup.transition-out {
+    animation: slideupOut 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slidedown {
+    transition: all 1s ease;
+  }
+  .Block-media .background-transition.slidedown.transition-in {
+    animation: slidedownIn 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slidedown.transition-out {
+    animation: slidedownOut 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slideright {
+    transition: all 1s ease;
+  }
+  .Block-media .background-transition.slideright.transition-in {
+    animation: sliderightIn 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slideright.transition-out {
+    animation: sliderightOut 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slideleft {
+    transition: all 1s ease;
+  }
+  .Block-media .background-transition.slideleft.transition-in {
+    animation: slidelefttIn 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.slideleft.transition-out {
+    animation: slidelefttOut 0.5s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.shuffle.transition-in {
+    z-index: 0;
+    animation: shuffleIn 1s linear 0s 1 forwards;
+  }
+  .Block-media .background-transition.shuffle.transition-out {
+    z-index: 1;
+    animation: shuffleOut 1s linear 0s 1 forwards;
+  }
+  .Block-mediaCaption {
+    transition: opacity 0.5s;
+    opacity: 0;
+    z-index: 1;
+  }
+  .is-fixed > .Block-mediaCaption {
+    opacity: 1;
+  }
+  .Block-mediaCaption .Caption {
+    position: absolute;
+    bottom: 0;
+    margin-left: 0;
+    max-width: 100%;
+    min-height: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f9f9f9;
+    pointer-events: none;
+    animation: fadeIn 1s;
+  }
+  .has-light .Block-mediaCaption .Caption {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #000;
+  }
+  .has-hidden-caption-titles .Block-mediaCaption .Caption {
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+  @media (max-width: 699px) {
+    .has-hidden-caption-titles .Block-mediaCaption .Caption {
+      padding: 1px 10px 3px;
+    }
+  }
+  .has-hidden-caption-titles
+    .Block-mediaCaption
+    .Caption
+    > :not(.Caption-attribution) {
+    display: none;
+  }
+  .Block-mediaCaption .Caption-attribution {
+    color: #d2d2d2;
+  }
+  .has-light .Block-mediaCaption .Caption-attribution {
+    color: #666;
+  }
+  @media (max-width: 699px) {
+    .has-hidden-caption-titles .Block-mediaCaption .Caption-attribution {
+      font-size: 0.625rem;
+    }
+  }
+  .Block-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 30px);
+    max-width: 640px;
+    min-height: 100vh;
+  }
+  @media (min-width: 980px) {
+    .Block-content.is-left {
+      margin-left: calc(25% - 200px);
+    }
+    .has-inset-media > .Block-content.is-left {
+      margin-left: calc(25% - 224px);
+    }
+    .Block-content.is-right {
+      margin-right: calc(25% - 200px);
+    }
+    .has-inset-media > .Block-content.is-right {
+      margin-right: calc(25% - 224px);
+    }
+  }
+  @media (min-width: 980px) and (max-width: 1799px) {
+    .Block-content.is-left,
+    .Block-content.is-right {
+      max-width: 560px;
+    }
+    .has-inset-media > .Block-content.is-left,
+    .has-inset-media > .Block-content.is-right {
+      max-width: 480px;
+    }
+  }
+  @media (min-width: 1800px) {
+    .Block-content.is-left {
+      margin-left: calc(25% - 280px);
+    }
+    .Block-content.is-right {
+      margin-right: calc(25% - 280px);
+    }
+  }
+  .Header.is-floating + .Block > .Block-content:nth-child(2) {
+    margin-top: calc(100vh - var(--Main-offsetTop));
+  }
+  .Block-content > * {
+    flex-shrink: 0;
+    margin: 0 !important;
+    padding: 12px 28px;
+  }
+  @media (min-width: 980px) {
+    .Block-content > * {
+      padding: 18px 28px;
+    }
+  }
+  .is-piecemeal > .Block-content > :first-child {
+    margin-top: 40vh !important;
+  }
+  .is-piecemeal > .Block-content:nth-child(2) > :first-child {
+    margin-top: 80vh !important;
+  }
+  .is-piecemeal > .Block-content > :last-child {
+    margin-bottom: 40vh !important;
+  }
+  @media (min-width: 980px) {
+    .is-piecemeal.has-inset-media > .Block-content:nth-child(2) > :first-child {
+      margin-top: 40vh !important;
+    }
+  }
+  .is-not-piecemeal .Block-content.u-richtext > * {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  .is-piecemeal .Block-content.u-richtext > * {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .is-not-piecemeal .Block-content.u-richtext-invert > * {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .is-piecemeal .Block-content.u-richtext-invert > * {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .Block-content > :first-child {
+    padding-top: 24px;
+  }
+  @media (min-width: 980px) {
+    .Block-content > :first-child {
+      padding-top: 36px;
+    }
+  }
+  .is-not-piecemeal > .Block-content > :first-child {
+    padding-top: 80px;
+  }
+  .Block-content > :last-child {
+    padding-bottom: 24px;
+  }
+  @media (min-width: 980px) {
+    .Block-content > :last-child {
+      padding-bottom: 36px;
+    }
+  }
+  .is-not-piecemeal > .Block-content > :last-child {
+    padding-bottom: 80px;
+  }
+  .Block-content > a[id],
+  .Block-content > a[name],
+  .Block-content > [data-mount] {
+    padding: 0;
+  }
+  .Block-content > h2 {
+    max-width: 100%;
+  }
+  .Block.Block > .Block-content:nth-child(2):last-child > h2 {
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+  }
+  @media (min-width: 700px) and (max-width: 979px) {
+    .is-piecemeal > .Block-content > h4,
+    .is-piecemeal > .Block-content > p,
+    .is-piecemeal > .Block-content > ul li,
+    .is-piecemeal > .Block-content > ol li,
+    .is-piecemeal > .Block-content > blockquote {
+      font-size: 1.25rem;
+    }
+  }
+  @media (min-width: 980px) {
+    .is-piecemeal > .Block-content > h4,
+    .is-piecemeal > .Block-content > p,
+    .is-piecemeal > .Block-content > ul li,
+    .is-piecemeal > .Block-content > ol li,
+    .is-piecemeal > .Block-content > blockquote {
+      font-size: 1.375rem;
+    }
+  }
+  .Block-content [class*="u-pull"] {
+    float: none;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
+}

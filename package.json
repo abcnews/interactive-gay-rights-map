@@ -18,13 +18,15 @@
     }
   },
   "devDependencies": {
-    "@abcnews/aunty": "^7.6.0",
+    "@abcnews/aunty": "^13.0.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "html-looks-like": "^1.0.3",
     "jest": "^21.2.1"
   },
   "dependencies": {
+    "@abcnews/env-utils": "^3.1.0",
+    "@abcnews/mount-utils": "^2.0.0",
     "@abcnews/scrollyteller": "^1.0.2",
     "d3-geo": "^1.9.0",
     "d3-request": "^1.0.6",
