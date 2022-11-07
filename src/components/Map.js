@@ -15,7 +15,7 @@ const MAP_DATA = TopoJSON.feature(mapJSON, mapJSON.objects.countries)
     return f;
   });
 
-const styles = require('./Map.scss');
+const styles = require('./Map.scss').default;
 const SERIF_FONT = 'ABCSerif,Book Antiqua,Palatino Linotype,Palatino,serif';
 const SANS_SERIF_FONT = 'ABCSans,Helvetica,Arial,sans-serif';
 
