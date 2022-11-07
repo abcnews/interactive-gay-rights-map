@@ -42,8 +42,6 @@ async function init() {
       "mark"
     );
 
-  console.log(scrollyteller);
-
   const App = require("./components/App");
 
   render(
