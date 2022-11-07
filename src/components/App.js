@@ -1,6 +1,7 @@
 const React = require("react");
 const Scrollyteller = require("@abcnews/scrollyteller");
 const Map = require("./Map");
+const styles = require("./App.scss").default
 
 class App extends React.Component {
   constructor(props) {
@@ -24,8 +25,8 @@ class App extends React.Component {
     return (
       <Scrollyteller
         panels={scrollyteller.panels}
-        className={`Block is-richtext is-piecemeal`}
-        panelClassName="Block-content u-layout u-richtext"
+        className={`Block is-richtext is-piecemeal ${styles.scrollyteller}`}
+        panelClassName={`Block-content u-layout u-richtext ${styles.panel}`}
         onMarker={(config) =>
           this.setState((state) => ({
             property: config.key,
